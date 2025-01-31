@@ -6,8 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 #criar uma instancia SQLalchemy
-app.config['SECRET_KEY'] = 'Ric@rdo#19'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SECRET_KEY'] = 'atUcnh0ivbCNs4bi'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:atUcnh0ivbCNs4bi@db.cxziwclnnzxbheuprxox.supabase.co:5432/postgres?sslmode=require'
 
 db = SQLAlchemy(app)
 db:SQLAlchemy
@@ -35,6 +35,7 @@ class Autor (db.Model):
 #criando usuario Autor
 def inicializar_banco():
     with app.app_context():
+        print('Criando Banco de Dados')
         db.drop_all()
         db.create_all()
         autor = Autor(nome = 'Ricardo', email = 'nardaoricardo@gmail.com', senha = '123', admin = True)
