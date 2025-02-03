@@ -3,6 +3,7 @@ from EstruturaApi import Autor, Postagem, app, db
 import jwt
 from datetime import datetime, timedelta 
 from functools import wraps
+import os
 
 def token_obrigatorio(f):
     @wraps(f)
@@ -182,5 +183,6 @@ def excluir_autor(autor,id_autor):
     return jsonify({'mensagem': 'Autor excluido com sucesso!'}, 200)
 
 
-app.run(port=5000, host='localhost', debug=True)
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Usa a porta definida no ambiente ou 5000 por padrão
+    app.run(host="0.0.0.0", port=port, debug=False)
