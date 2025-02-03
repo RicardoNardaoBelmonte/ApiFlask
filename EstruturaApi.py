@@ -1,13 +1,13 @@
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 #criar uma api flask
 
 app = Flask(__name__)
 
 #criar uma instancia SQLalchemy
 app.config['SECRET_KEY'] = 'atUcnh0ivbCNs4bi'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:atUcnh0ivbCNs4bi@db.cxziwclnnzxbheuprxox.supabase.co:5432/postgres?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 
 db = SQLAlchemy(app)
 db:SQLAlchemy
