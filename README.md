@@ -13,6 +13,7 @@ Esta API foi desenvolvida utilizando o framework Flask e SQLAlchemy para realiza
 
 ## Endpoints da API
 - Autores
+
 GET /autores Obtém a lista de todos os autores.
 
 GET /autores/<int:id_autor>
@@ -28,6 +29,7 @@ DELETE /autores/<int:id_autor>
 Exclui um autor pelo ID.
 
 - Postagens
+
 GET /
 Obtém a lista de todas as postagens.
 
@@ -44,6 +46,7 @@ DELETE /postagem/<int:id_postagem>
 Exclui uma postagem pelo ID.
 
 - Autenticação
+
 A autenticação na API é feita via JWT. Para obter um token, faça login com as credenciais de um autor no endpoint /login.
 
 POST /login
